@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE Lighthouse Hub</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #f1c40f;
+            --bg: #f4f7f6;
+            --card: #ffffff;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--primary); margin: 0; padding: 20px; }
+        header { text-align: center; padding: 40px 0; background: var(--primary); color: white; border-radius: 12px; margin-bottom: 30px; }
+        .container { max-width: 1000px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .full-width { grid-column: span 2; }
+        h2 { border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+        textarea { width: 100%; height: 150px; border: 1px solid #ddd; border-radius: 8px; padding: 10px; margin-top: 10px; }
+        input[type="text"] { width: 80%; padding: 10px; border-radius: 8px; border: 1px solid #ddd; }
+        button { background: var(--accent); border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .video-slot { background: #eee; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🚨 THE LIGHTHOUSE HUB</h1>
+    <p>Guiding your projects through the fog.</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>📝 Notes & Brain Dumps</h2>
+        <textarea placeholder="Write your thoughts here..."></textarea>
+        <button onclick="alert('Note saved locally!')">Save Note</button>
+    </div>
+
+    <div class="card">
+        <h2>📽️ Video Resources</h2>
+        <input type="text" id="vLink" placeholder="Paste YouTube Embed Link here...">
+        <button onclick="addVideo()">Add Video</button>
+        <div id="videoContainer" class="video-slot">
+            <span>Video will appear here</span>
+        </div>
+    </div>
+
+    <div class="card full-width">
+        <h2>🎯 Daily Focus</h2>
+        <ul>
+            <li><input type="checkbox"> Finish the Lighthouse Hub layout</li>
+            <li><input type="checkbox"> Organize video tutorials</li>
+            <li><input type="checkbox"> Set weekly milestones</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function addVideo() {
+        const link = document.getElementById('vLink').value;
+        if(link) {
+            document.getElementById('videoContainer').innerHTML = `<iframe width="100%" height="100%" src="${link}" frameborder="0" allowfullscreen></iframe>`;
+        }
+    }
+</script>
+
+</body>
+</html>
